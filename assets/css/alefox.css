@@ -9332,6 +9332,7 @@ body.megamenu-popup-active .mobile-nav__content {
   }
   .offer-one__title_instagram {
     line-height: 46px;
+    letter-spacing: -4px;
   }
 }
 .offer-one .alefox-btn {
@@ -12517,16 +12518,6 @@ body.megamenu-popup-active .mobile-nav__content {
   position: relative;
   z-index: 2;
   display: inline-block;
-}
-.about-three__image::after {
-  position: absolute;
-  left: -20px;
-  bottom: -20px;
-  content: "";
-  width: 278px;
-  height: 278px;
-  background-color: var(--alefox-base, #44a05b);
-  z-index: -1;
 }
 .about-three__image img {
   max-width: 100%;
