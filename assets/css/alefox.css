@@ -9347,6 +9347,9 @@ body.megamenu-popup-active .mobile-nav__content {
   .offer-two {
     padding-bottom: 80px;
   }
+  .offer-one__title_instagram {
+    letter-spacing: -8px;
+  }
 }
 .offer-two__item {
   position: relative;
