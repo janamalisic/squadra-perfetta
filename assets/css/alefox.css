@@ -10232,7 +10232,7 @@ body.megamenu-popup-active .mobile-nav__content {
   text-transform: none;
   font-weight: 500;
   /* height: 46px; */
-  height: 48px;
+  height: 55px;
   letter-spacing: var(--alefox-letter-space, 0.1em);
   align-items: center;
   transition: 500ms;
