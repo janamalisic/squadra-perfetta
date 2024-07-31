@@ -10228,7 +10228,8 @@ body.megamenu-popup-active .mobile-nav__content {
   color: var(--alefox-white, #fff);
   font-size: 12px;
   font-family: var(--alefox-font, "Rubik", sans-serif);
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  text-transform: none;
   font-weight: 500;
   /* height: 46px; */
   height: 48px;
