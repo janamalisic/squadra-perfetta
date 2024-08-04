@@ -9233,6 +9233,9 @@ body.megamenu-popup-active .mobile-nav__content {
   align-items: center;
   justify-content: center;
   border-radius: 194px;
+  background-image: url('../images/resources/image00089.jpeg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 991px) {
   .offer-one__left {
