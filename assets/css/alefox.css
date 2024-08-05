@@ -10577,6 +10577,18 @@ body.megamenu-popup-active .mobile-nav__content {
   background-image: url(../images/backgrounds/contact-top.jpg);
   opacity: 0.5;
 }
+.page-header__bg.onama {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover; /* Možete koristiti 'contain' ako želite da cela slika bude vidljiva */
+  background-position: center; /* Centriranje slike */
+    background-image: url(../images/backgrounds/onama.jpeg);
+  opacity: 0.5;
+}
 .page-header .container {
   position: relative;
   z-index: 10;
