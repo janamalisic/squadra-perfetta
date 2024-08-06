@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 
-
-<!-- Mirrored from bracketweb.com/alefox-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Jul 2024 10:56:17 GMT -->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -123,32 +121,62 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-xl-5">
-                        <form class="contact-two__form contact-form-validated form-one wow fadeInUp" data-wow-duration="1500ms" action="assets/php/send_email.php" method="post">
-                            <div class="sec-title text-center">
-                                <h6 class="sec-title__tagline bw-split-in-right"><span class="sec-title__tagline__left-leaf" style="background-image: url(assets/images/shapes/leaf.png);"></span>Squadra Perfetta<span class="sec-title__tagline__right-leaf" style="background-image: url(assets/images/shapes/leaf.png);"></span></h6><!-- /.sec-title__tagline -->
-                                <h3 class="sec-title__title bw-split-in-left">Ostavite nam poruku</h3><!-- /.sec-title__title -->
-                            </div><!-- /.sec-title -->
-                            <div class="form-one__group">
-                                <div class="form-one__control form-one__control--full">
-                                    <input type="text" name="name" placeholder="Ime">
-                                </div><!-- /.form-one__control form-one__control--full -->
-                                <div class="form-one__control form-one__control--full">
-                                    <input type="email" name="email" placeholder="Email">
-                                </div><!-- /.form-one__control form-one__control--full -->
-                                <div class="form-one__control form-one__control--full">
-                                    <textarea name="message" placeholder="Poruka"></textarea>
-                                </div><!-- /.form-one__control form-one__control--full -->                                
-                                <div class="form-one__control form-one__control--full">
-                                    <button type="submit" class="alefox-btn">
-                                        <span class="alefox-btn__item"></span>
-                                        <span class="alefox-btn__item"></span>
-                                        <span class="alefox-btn__item"></span>
-                                        <span class="alefox-btn__item"></span>
-                                        Pošalji
-                                    </button>
-                                </div><!-- /.form-one__control -->
-                            </div><!-- /.form-one__group -->
-                        </form>
+                    <form class="contact-two__form contact-form-validated form-one wow fadeInUp" data-wow-duration="1500ms" action="sendemail.php" method="POST" id="contactForm">
+                        <div class="sec-title text-center">
+                            <h6 class="sec-title__tagline bw-split-in-right"><span class="sec-title__tagline__left-leaf" style="background-image: url(assets/images/shapes/leaf.png);"></span>Squadra Perfetta<span class="sec-title__tagline__right-leaf" style="background-image: url(assets/images/shapes/leaf.png);"></span></h6>
+                            <h3 class="sec-title__title bw-split-in-left">Ostavite nam poruku</h3>
+                        </div>
+                        <div class="form-one__group">
+                            <div class="form-one__control form-one__control--full">
+                                <input type="text" name="name" placeholder="Ime">
+                            </div>
+                            <div class="form-one__control form-one__control--full">
+                                <input type="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-one__control form-one__control--full">
+                                <textarea name="message" placeholder="Poruka"></textarea>
+                            </div>
+                            <div class="form-one__control form-one__control--full">
+                                <button type="submit" name="submitContact" class="alefox-btn">
+                                    <span class="alefox-btn__item"></span>
+                                    <span class="alefox-btn__item"></span>
+                                    <span class="alefox-btn__item"></span>
+                                    <span class="alefox-btn__item"></span>
+                                    Pošalji
+                                </button>
+                            </div>
+                            <div id="messageStatus" class="form-one__control form-one__control--full"></div>
+                        </div>
+                    </form>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                                event.preventDefault();
+                                const form = event.target;
+                                
+                                // Provera validnosti forme
+                                if (!form.checkValidity()) {
+                                    document.getElementById('messageStatus').innerHTML = 'Molimo popunite sva polja.';
+                                    return;
+                                }
+
+                                const formData = new FormData(form);
+
+                                fetch('sendemail.php', {
+                                    method: 'POST',
+                                    body: formData
+                                })
+                                .then(response => response.text())
+                                .then(data => {
+                                    document.getElementById('messageStatus').innerHTML = data;
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    document.getElementById('messageStatus').innerHTML = 'Greška prilikom slanja poruke. Molimo pokušajte ponovo.';
+                                });
+                            });
+                        });
+                    </script>
                     </div>
                     <div class="col-md-6 col-xl-7 d-flex align-items-center wow fadeInUp">
                         <ul class="contact-two__list">
@@ -336,8 +364,8 @@
     <script src="assets/vendors/gsap/alefox-split.js"></script>
     <!-- template js -->
     <script src="assets/js/alefox.js"></script>
+
+   
 </body>
 
-
-<!-- Mirrored from bracketweb.com/alefox-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Jul 2024 10:56:17 GMT -->
 </html>
