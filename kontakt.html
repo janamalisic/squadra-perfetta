@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="sr">
 
@@ -36,7 +38,6 @@
 
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/alefox.css" />
-
 </head>
 
 <body class="custom-cursor">
@@ -145,38 +146,27 @@
                                     Pošalji
                                 </button>
                             </div>
-                            <div id="messageStatus" class="form-one__control form-one__control--full"></div>
                         </div>
+                        
                     </form>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            document.getElementById('contactForm').addEventListener('submit', function(event) {
-                                event.preventDefault();
-                                const form = event.target;
-                                
-                                // Provera validnosti forme
-                                if (!form.checkValidity()) {
-                                    document.getElementById('messageStatus').innerHTML = 'Molimo popunite sva polja.';
-                                    return;
-                                }
-
-                                const formData = new FormData(form);
-
-                                fetch('sendemail.php', {
-                                    method: 'POST',
-                                    body: formData
-                                })
-                                .then(response => response.text())
-                                .then(data => {
-                                    document.getElementById('messageStatus').innerHTML = data;
-                                })
-                                .catch(error => {
-                                    console.error('Error:', error);
-                                    document.getElementById('messageStatus').innerHTML = 'Greška prilikom slanja poruke. Molimo pokušajte ponovo.';
-                                });
-                            });
-                        });
-                    </script>
+                    <script src="assets/vendors/jquery/jquery-3.7.0.min.js"></script>
+        <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var messageText = "<?= $_SESSION['status'] ?? ''; ?>";
+                if (messageText != '') {
+                    Swal.fire({
+                        title: "Thank you!",
+                        text: messageText,
+                        icon: "success"
+                    });
+                }
+                <?php unset($_SESSION['status']); ?>
+            });
+        </script>
+                   
                     </div>
                     <div class="col-md-6 col-xl-7 d-flex align-items-center wow fadeInUp">
                         <ul class="contact-two__list">
