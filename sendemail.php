@@ -39,15 +39,15 @@ if (isset($_POST['submitContact'])) {
 
         if ($mail->send()) {
             $_SESSION['status'] = "Thank you for contacting us - Team Squadra Perfetta";
-            header("Location: " . $_SERVER['HTTP_REFERER']);
-            exit(0);
         } else {
             $_SESSION['status'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            header("Location: " . $_SERVER['HTTP_REFERER']);
-            exit(0);
         }
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit(0);
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        $_SESSION['status'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit(0);
     }
 } else {
     header('Location: index.html');
