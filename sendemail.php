@@ -28,12 +28,12 @@ if (isset($_POST['submitContact'])) {
         $mail->addAddress('janaijoca2003@gmail.com', 'Squadra');
 
         $mail->isHTML(true);
-        $mail->Subject = 'New enquiry - Squadra Contact Form';
+        $mail->Subject = 'Nova poruka - Squadra Contact Form';
 
-        $bodyContent = '<div>Hello, you got a new enquiry</div>
+        $bodyContent = '<div>Dobili ste novu poruku sa sajta Squadra Perfetta.</div> <br>
             <div>Ime: ' . $name . '</div>
             <div>Email: ' . $email . '</div>
-            <div>Message: ' . $message . '</div>';
+            <div>Poruka: ' . $message . '</div>';
 
         $mail->Body = $bodyContent;
 
