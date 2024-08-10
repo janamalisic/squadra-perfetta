@@ -5526,7 +5526,7 @@ body.megamenu-popup-active .mobile-nav__content {
 .cta-three {
   position: relative;
   background-color: var(--alefox-base, #44a05b);
-  padding: 80px 0;
+  padding: 0;
   overflow: hidden;
 }
 .cta-three__shape-left {
@@ -5567,6 +5567,9 @@ body.megamenu-popup-active .mobile-nav__content {
   .cta-three__thumb {
     text-align: left;
     margin-bottom: 30px;
+  }
+  .cta-three {
+    padding: 80px 0;
   }
 }
 .cta-three__thumb img {
