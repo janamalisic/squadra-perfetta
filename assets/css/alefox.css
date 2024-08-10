@@ -10531,7 +10531,7 @@ body.megamenu-popup-active .mobile-nav__content {
   width: 150px;
   height: 150px;
   z-index: 1;
-  background-color: var(--alefox-base, #44a05b);
+  background-color: var(--alefox-base, #b98d58);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="343" height="240"><path d="m122.5 0.1l220.4 70.9c0 0-158.9 25.4-155.3 75.8 5.2 74.6-74.2 92.4-74.2 92.4l-113-95.6z"/></svg>');
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="343" height="240"><path d="m122.5 0.1l220.4 70.9c0 0-158.9 25.4-155.3 75.8 5.2 74.6-74.2 92.4-74.2 92.4l-113-95.6z"/></svg>');
   -webkit-mask-repeat: no-repeat;
@@ -10577,8 +10577,9 @@ body.megamenu-popup-active .mobile-nav__content {
   bottom: 0;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../images/backgrounds/contact-top.jpg);
+  background-color: var(--alefox-base, #44a05b);
   opacity: 0.5;
+  background-image: none;
 }
 .page-header__bg.onama {
   position: absolute;
