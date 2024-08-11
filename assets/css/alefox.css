@@ -3106,6 +3106,48 @@ h6 {
   clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%);
 }
 
+/*Dots*/
+
+.color-dots {
+  display: flex;
+  gap: 10px; /* razmak između kružića */
+  margin: 15px 0; /* razmak između tekstova i kružića */
+}
+
+.dot-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* pozicija iznad kružića */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap; /* sprečava prelamanje teksta */
+}
+
+.dot-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 /*--------------------------------------------------------------
 # Navigations
 --------------------------------------------------------------*/
@@ -3718,7 +3760,6 @@ h6 {
   font-family: var(--alefox-heading-font, "Inter", serif);
   font-weight: 500;
   display: flex;
-  text-transform: capitalize;
   padding: 8px 20px;
   transition: 400ms;
   margin-bottom: 4px;
@@ -13933,7 +13974,6 @@ body.megamenu-popup-active .mobile-nav__content {
   font-size: 22px;
   color: var(--alefox-white, #fff);
   font-weight: 700;
-  text-transform: capitalize;
   line-height: 28px;
   margin: 0;
   opacity: 1;
